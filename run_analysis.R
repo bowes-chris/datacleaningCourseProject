@@ -43,3 +43,5 @@ finaldata <- cbind("subject" = xymerge$subject,
 
 ## creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 finalAggregate <- aggregate(finaldata[-c(1,2)], by = list("subject" = finaldata$subject, "activity" = finaldata$activity) , mean)
+
+write.table(finalAggregate, file = "tidydata.txt", row.names = FALSE)
