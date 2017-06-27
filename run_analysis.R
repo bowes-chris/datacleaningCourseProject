@@ -1,7 +1,8 @@
 setwd("~/R-Home/coursera/datacleaning/UCI HAR Dataset")
 
-## read x column names
+## read x column names, clean names
 xnames <- read.table(file = "features.txt", header = FALSE, sep = "", col.names = c("id", "feature"))
+xnames$feature <- gsub("-|\\(\\)", "", xnames$feature)
 
 ## read y activity labels
 ynames <- read.table(file = "activity_labels.txt", header = FALSE, sep = "", col.names = c("id", "activity"))
